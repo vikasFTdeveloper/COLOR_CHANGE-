@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  /* background: linear-gradient(135deg, #0f172a, #1e1b4b, #0f172a); */
+  background-size: 300% 300%;
+  animation: bgMove 12s ease infinite;
+  color: #fff;
+}
+
+@keyframes bgMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hi {
+  text-align: center;
+  padding: 40px 50px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.hi h1 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.new {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* ---------- BUTTONS (Uiverse colors) ---------- */
+.new button {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237b52b9'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+
+  background: #a370f0;
+  color: white;
+  font-family: inherit;
+  padding: 0.35em 3.3em 0.35em 1.2em;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 0.9em;
+  display: flex;
+  align-items: center;
+  height: 2.8em;
+  box-shadow: inset 0 0 1.6em -0.6em #714da6;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+/* only the icon is different for stop */
+#stop {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237b52b9'%3E%3Cpath d='M6 6h12v12H6z'/%3E%3C/svg%3E");
+}
+
+.new button::after {
+  content: "";
+  position: absolute;
+  right: 0.3em;
+  height: 2.2em;
+  width: 2.2em;
+  border-radius: 0.7em;
+  background-color: white;
+  background-image: var(--icon);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.1em;
+  box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+  transition: all 0.3s;
+}
+
+.new button:hover::after {
+  width: calc(100% - 0.6em);
+}
+
+.new button:active::after {
+  transform: scale(0.95);
+}
+
